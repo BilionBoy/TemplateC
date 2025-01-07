@@ -1,0 +1,106 @@
+<div class="container-fluid " style="margin-top: 80px;">
+  <h1 class="header-title mb-4">Gerenciamento de Estabelecimentos</h1>
+  <!-- Barra de Pesquisa -->
+  <div class="search-bar">
+    <input type="text" class="form-control" id="searchInput" placeholder="Pesquise por nome ou tipo..." />
+  </div>
+  <!-- Botão para Adicionar Novo Estabelecimento -->
+  <div class="mb-4">
+    <button class="btn btn-success btn-lg">
+      <i class="fas fa-plus-circle"></i> Adicionar Novo Estabelecimento
+    </button>
+  </div>
+  <!-- Tabela com Dados de Estabelecimentos -->
+  <div class="card">
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-striped" id="tableEstabelecimentos">
+          <thead>
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">Tipo</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Exemplo de dados estáticos para os estabelecimentos -->
+            <tr>
+              <td>Pizzaria do Pepeu</td>
+              <td>Pizzaria</td>
+              <td>
+                <button class="btn btn-warning btn-action"><i class="fas fa-edit"></i> Editar</button>
+                <button class="btn btn-dark btn-action"><i class="fas fa-trash-alt"></i> Excluir</button>
+                <%= link_to "Ir a Unidade", root_path, class: "btn btn-warning btn-action " %>
+              </tr>
+              <tr>
+                <td>Restaurante Gourmet</td>
+                <td>Restaurante</td>
+                <td>
+                  <button class="btn btn-warning btn-action"><i class="fas fa-edit"></i> Editar</button>
+                  <button class="btn btn-danger btn-action"><i class="fas fa-trash-alt"></i> Excluir</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Lanchonete X</td>
+                <td>Lanchonete</td>
+                <td>
+                  <button class="btn btn-warning btn-action"><i class="fas fa-edit"></i> Editar</button>
+                  <button class="btn btn-danger btn-action"><i class="fas fa-trash-alt"></i> Excluir</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Pizzaria Delícia</td>
+                <td>Pizzaria</td>
+                <td>
+                  <button class="btn btn-warning btn-action"><i class="fas fa-edit"></i> Editar</button>
+                  <button class="btn btn-danger btn-action"><i class="fas fa-trash-alt"></i> Excluir</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Restaurante Brasileiro</td>
+                <td>Restaurante</td>
+                <td>
+                  <button class="btn btn-warning btn-action"><i class="fas fa-edit"></i> Editar</button>
+                  <button class="btn btn-danger btn-action"><i class="fas fa-trash-alt"></i> Excluir</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- Caso não haja dados -->
+    <div class="alert alert-info" role="alert">
+      Não há estabelecimentos cadastrados.
+    </div>
+  </div>
+  <style>
+    .table thead th {
+    background-color: #007bff;
+    color: white;
+    }
+    .btn-action {
+    font-size: 1.1rem;
+    }
+
+    .search-bar {
+    margin-bottom: 20px;
+    }
+    .alert-info {
+    margin-top: 20px;
+    }
+    .btn-success {
+    margin-bottom: 20px;
+    }
+
+
+    .header-title {
+    font-size: 2rem;
+    color: #007bff;
+    }
+    .card {
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  </style>

@@ -1,0 +1,104 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
+@import url('https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css');
+/* Importando as fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+/* Títulos */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+p,
+li,
+span {
+    color: white;
+    font-weight: 400;
+}
+
+strong,
+b {
+    font-weight: 600;
+}
+
+/* SIDEBAR */
+
+.sidebar[data-background-color=dark] {
+    background: #2a5065 !important
+}
+
+.logo-header[data-background-color=dark] {
+    background: #2a5065 !important
+}
+
+.sidebar .nav.nav-secondary>.nav-item a:hover i,
+/* cores ícones do sidebar */
+.sidebar .nav.nav-secondary>.nav-item a:focus i,
+.sidebar .nav.nav-secondary>.nav-item a[data-toggle=collapse][aria-expanded=true] i,
+.sidebar[data-background-color="white"] .nav.nav-secondary>.nav-item a:hover i,
+.sidebar[data-background-color="white"] .nav.nav-secondary>.nav-item a:focus i,
+.sidebar[data-background-color="white"] .nav.nav-secondary>.nav-item a[data-toggle=collapse][aria-expanded=true] i {
+    color: #ffffff !important;
+}
+
+.sidebar .nav.nav-secondary>.nav-item a[data-toggle=collapse][aria-expanded=true]:before,
+.sidebar[data-background-color="white"] .nav.nav-secondary>.nav-item a[data-toggle=collapse][aria-expanded=true]:before {
+    background: #ffffff !important;
+}
+
+.sidebar .nav.nav-secondary>.nav-item.active a:before,
+.sidebar[data-background-color="white"] .nav.nav-secondary>.nav-item.active a:before {
+    background: #ffffff !important;
+}
+
+.sidebar .nav.nav-secondary>.nav-item.active a i,
+.sidebar[data-background-color="white"] .nav.nav-secondary>.nav-item.active a i {
+    color: #ffffff !important;
+}
+
+.sidebar .nav.nav-secondary>.nav-item .nav-collapse li.active>a,
+/* cores scroll do sidebar */
+.sidebar[data-background-color="white"] .nav.nav-secondary>.nav-item .nav-collapse li.active>a {
+    color: #ffffff !important;
+}
+
+.display-6 {
+    justify-content: center;
+    display: flex;
+    color: white;
+    width: 300px;
+}
+
+/* NAVBAR */
+.main-header {
+    background: #2a5065;
+    min-height: 60px;
+    width: calc(100% - 250px);
+    position: fixed;
+    z-index: 1001;
+}
+
+.main-header .navbar-header {
+    min-height: 70px;
+}
+
+.main-header .navbar-header .btn-toggle {
+    margin-right: 30px;
+    margin-left: 20px;
+}

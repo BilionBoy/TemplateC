@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+
+development:
+  <<: *default
+  database: menuxproject_development
+  username: enterprisesdhio
+  password: hauntmex3
+
+test:
+  <<: *default
+  database: menuxproject_test
+  username: enterprisesdhio
+  password: hauntmex3
+
+production:
+  <<: *default
+  database: menuxproject_production
+  username: enterprisesdhio
+  password: <%= ENV["MENUXPROJECT_DATABASE_PASSWORD"] %>
