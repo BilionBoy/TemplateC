@@ -185,6 +185,8 @@ GEM
     ostruct (0.6.1)
     pagy (9.3.3)
     parallel (1.26.3)
+    paranoia (3.0.0)
+      activerecord (>= 6, < 8.1)
     parser (3.3.6.0)
       ast (~> 2.4.1)
       racc
@@ -354,6 +356,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   pagy
+  paranoia
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.2.2, >= 7.2.2.1)
