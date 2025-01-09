@@ -67,7 +67,10 @@ gem "htmlbeautifier"
 gem "devise"
 
 # Paginação
-gem 'pagy'
+gem "pagy"
 
 # Gerar PDF
-gem 'wicked_pdf'
+gem "wicked_pdf"
+
+# Validar CPF_CNPJ
+gem "cpf_cnpj"
