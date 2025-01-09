@@ -65,3 +65,6 @@ gem "htmlbeautifier"
 
 # Gems para autenticação
 gem "devise"
+
+# Gem para paginação
+gem 'pagy'
