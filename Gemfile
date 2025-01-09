@@ -89,4 +89,4 @@ gem "uuid"
 gem "cancancan"
 
 # Soft deleted_at
-gem 'paranoia'
+gem "paranoia"
