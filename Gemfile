@@ -81,3 +81,9 @@ gem "caxlsx_rails"
 
 # Nested Forms
 gem "cocoon"
+
+# Identificador Unico Universal
+gem "uuid"
+
+# Autorização de usuários
+gem "cancancan"
