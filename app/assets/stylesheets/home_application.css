@@ -40,11 +40,11 @@ b {
 /* SIDEBAR */
 
 .sidebar[data-background-color=dark] {
-    background: #2a5065 !important
+    background: #112029 !important
 }
 
 .logo-header[data-background-color=dark] {
-    background: #2a5065 !important
+    background: #112029 !important
 }
 
 .sidebar .nav.nav-secondary>.nav-item a:hover i,
@@ -87,12 +87,14 @@ b {
 
 /* NAVBAR */
 .main-header {
-    background: #2a5065;
+    background: #112029 !important;
     min-height: 60px;
     width: calc(100% - 250px);
     position: fixed;
     z-index: 1001;
 }
+
+
 
 .main-header .navbar-header {
     min-height: 70px;
