@@ -168,6 +168,7 @@ GEM
     nokogiri (1.18.1-x86_64-linux-musl)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    ostruct (0.6.1)
     pagy (9.3.3)
     parallel (1.26.3)
     parser (3.3.6.0)
@@ -303,6 +304,9 @@ GEM
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    wicked_pdf (2.8.2)
+      activesupport
+      ostruct
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.7.1)
@@ -340,6 +344,7 @@ DEPENDENCIES
   turbo-rails
   tzinfo-data
   web-console
+  wicked_pdf
 
 BUNDLED WITH
    2.5.23

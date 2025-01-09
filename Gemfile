@@ -56,15 +56,18 @@ group :test do
   gem "selenium-webdriver"
 end
 
-# Gems para formulários
+# Formulários
 gem "simple_form"
 
-# Gems para formatação ERB
+# Formatação ERB
 gem "rufo"
 gem "htmlbeautifier"
 
-# Gems para autenticação
+# Login
 gem "devise"
 
-# Gem para paginação
+# Paginação
 gem 'pagy'
+
+# Gerar PDF
+gem 'wicked_pdf'
