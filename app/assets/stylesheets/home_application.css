@@ -1,50 +1,64 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
-@import url('https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css");
 /* Importando as fontes do Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
 
 body {
-    font-family: 'Nunito', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: white;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: white;
 }
 
 /* Títulos */
+a {
+  color: #161616;
+  font-weight: bold;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: #222;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+h1.mb-4,
+mb0 {
+  color: #222;
 }
 
 p,
 li,
 span {
-    color: white;
-    font-weight: 400;
+  color: white;
+  font-weight: 400;
 }
 
 strong,
 b {
-    font-weight: 600;
+  font-weight: 600;
+}
+
+.nav-link {
+  color: #161616 !important;
 }
 
 /* SIDEBAR */
 
-.sidebar[data-background-color=dark] {
-    background: #112029 !important
+.sidebar[data-background-color="dark"] {
+  background: #005171 !important;
 }
 
-.logo-header[data-background-color=dark] {
-    background: #112029 !important
+.logo-header[data-background-color="dark"] {
+  background: #005171 !important;
 }
 
 .sidebar .nav.nav-secondary>.nav-item a:hover i,
@@ -54,53 +68,158 @@ b {
 .sidebar[data-background-color="white"] .nav.nav-secondary>.nav-item a:hover i,
 .sidebar[data-background-color="white"] .nav.nav-secondary>.nav-item a:focus i,
 .sidebar[data-background-color="white"] .nav.nav-secondary>.nav-item a[data-toggle=collapse][aria-expanded=true] i {
-    color: #ffffff !important;
+  color: #ffffff !important;
 }
 
-.sidebar .nav.nav-secondary>.nav-item a[data-toggle=collapse][aria-expanded=true]:before,
-.sidebar[data-background-color="white"] .nav.nav-secondary>.nav-item a[data-toggle=collapse][aria-expanded=true]:before {
-    background: #ffffff !important;
+.sidebar
+  .nav.nav-secondary
+  > .nav-item
+  a[data-toggle="collapse"][aria-expanded="true"]:before,
+.sidebar[data-background-color="white"]
+  .nav.nav-secondary
+  > .nav-item
+  a[data-toggle="collapse"][aria-expanded="true"]:before {
+  background: #ffffff !important;
 }
 
-.sidebar .nav.nav-secondary>.nav-item.active a:before,
-.sidebar[data-background-color="white"] .nav.nav-secondary>.nav-item.active a:before {
-    background: #ffffff !important;
+.sidebar .nav.nav-secondary > .nav-item.active a:before,
+.sidebar[data-background-color="white"]
+  .nav.nav-secondary
+  > .nav-item.active
+  a:before {
+  background: #ffffff !important;
 }
 
-.sidebar .nav.nav-secondary>.nav-item.active a i,
-.sidebar[data-background-color="white"] .nav.nav-secondary>.nav-item.active a i {
-    color: #ffffff !important;
+.sidebar .nav.nav-secondary > .nav-item.active a i,
+.sidebar[data-background-color="white"]
+  .nav.nav-secondary
+  > .nav-item.active
+  a
+  i {
+  color: #ffffff !important;
 }
 
 .sidebar .nav.nav-secondary>.nav-item .nav-collapse li.active>a,
 /* cores scroll do sidebar */
 .sidebar[data-background-color="white"] .nav.nav-secondary>.nav-item .nav-collapse li.active>a {
-    color: #ffffff !important;
+  color: #ffffff !important;
 }
 
 .display-6 {
-    justify-content: center;
-    display: flex;
-    color: white;
-    width: 300px;
+  justify-content: center;
+  display: flex;
+  color: white;
+  width: 300px;
 }
 
 /* NAVBAR */
 .main-header {
-    background: #112029 !important;
-    min-height: 60px;
-    width: calc(100% - 250px);
-    position: fixed;
-    z-index: 1001;
+  background: #005171 !important;
+  min-height: 60px;
+  width: calc(100% - 250px);
+  position: fixed;
+  z-index: 1001;
 }
 
-
-
 .main-header .navbar-header {
-    min-height: 70px;
+  min-height: 10vh;
 }
 
 .main-header .navbar-header .btn-toggle {
-    margin-right: 30px;
-    margin-left: 20px;
+  margin-right: 30px;
+  margin-left: 20px;
+}
+
+.navbar .navbar-nav .nav-item .nav-link i {
+  color: white;
+  font-size: 16px;
+  vertical-align: middle;
+  line-height: 1 !important;
+}
+
+/* Botões */
+.btn-voltar {
+  background-color: #f5f5f5;
+  border-color: #adadada3;
+  border-radius: 0.75rem;
+}
+
+.btn-voltar:hover {
+  background-color: #f5f5f5;
+  border-color: #adadada3;
+}
+
+.fa-exclamation-circle:before {
+  color: black;
+}
+
+/* Estilo personalizado para o botão "Incluir" */
+.btn-incluir {
+  margin-top: 20px;
+  padding: 0.65rem 1.4rem;
+  background-color: #1572e8;
+  /* Verde */
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.btn-incluir:hover {
+  background-color: #1572e8;
+  color: white;
+}
+
+.btn-incluir i {
+  margin-right: 8px;
+}
+
+.btn-secondary {
+  background: 005171 !important;
+  background-color: #005171 !important;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:disabled {
+  color: #ffffff !important;
+  background: 005171 !important;
+  border-color: 005171 !important;
+}
+
+/* DATATABLES */
+
+#funcoesTable th,
+#funcoesTable td {
+  border: 1px solid #ddd;
+  padding: 12px;
+}
+
+#funcoesTable th {
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+#funcoesTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#funcoesTable th:last-child,
+#funcoesTable td:last-child {
+  border-right: none;
+}
+
+#funcoesTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+/* Destacar o fundo e a cor do texto dos títulos da tabela */
+.table-header {
+  background-color: #007bff;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.2em;
 }
