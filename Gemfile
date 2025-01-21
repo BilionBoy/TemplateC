@@ -66,6 +66,9 @@ gem "htmlbeautifier"
 # Login
 gem "devise"
 
+# Ransack
+gem "ransack"
+
 # Paginação
 gem "pagy"
 
@@ -80,11 +83,10 @@ gem "caxlsx"
 gem "caxlsx_rails"
 
 # Nested Forms
-gem "cocoon"
+# gem "cocoon"
 
 # Identificador Unico Universal
-gem "uuid"
-
+# gem "uuid"
 # Autorização de usuários
 gem "cancancan"
 
