@@ -4,8 +4,6 @@ source "https://rubygems.org"
 gem "rails", "~> 7.2.2", ">= 7.2.2.1"
 # O pipeline original de assets para Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
-# Use o PostgreSQL como o banco de dados para o Active Record
-gem "pg", "~> 1.1"
 # Use o servidor web Puma [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Use JavaScript com mapas de importação ESM [https://github.com/rails/importmap-rails]
@@ -55,6 +53,8 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+# Use o banco de dados PostgreSQL
+gem "pg", "~> 1.1"
 
 # Formulários
 gem "simple_form"
