@@ -24,13 +24,20 @@
     <%= javascript_include_tag "/assets/js/plugin/datatables/datatables.min.js",                        "data-turbo-track": "reload" %>
     <%= javascript_include_tag "/assets/js/kaiadmin.min.js",                                            "data-turbo-track": "reload" %>
   </head>
-  <body>
-    <div class="wrapper">
+  <body class="">
+    <!-- Navbar principal -->
+    <%= render "shared/navbar" %>
+    <!-- Conteúdo da página -->
+    <div class="page-content">
       <%= render "shared/sidebar" %>
-      <%= render "shared/navbar" %>
-      <div class="main-content">
-        <div class="content-wrapper" >
-          <%= yield %>
+      <div class="content-wrapper">
+        <div class="content-inner">
+          <!-- Context Nav (barra de navegação contextual) -->
+          <%= yield :context_nav %>
+          <!-- Conteúdo principal da página -->
+          <div class="content">
+            <%= yield %>
+          </div>
         </div>
       </div>
     </div>
