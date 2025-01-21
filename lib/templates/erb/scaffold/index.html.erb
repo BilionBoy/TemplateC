@@ -1,0 +1,91 @@
+<div class="container-fluid" style="margin-top: 100px;">
+  <p style="color: green"><%%= notice %></p>
+  <!-- Título da Página com ícone de Voltar e Botão Incluir -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="d-flex align-items-center">
+      <%%= link_to root_path, class: "btn btn-light btn-sm me-3" do %>
+        <i class="fa fa-arrow-left"></i> <!-- Ícone de Voltar -->
+        <%% end %>
+        <h1 class="mb-0"><%%= t("common.<%= plural_table_name %>", default: "<%= plural_table_name.humanize %>") %></h1>
+      </div>
+      <!-- Botão para Criar Novo <%= singular_table_name.humanize %> -->
+      <%%= link_to new_<%= singular_table_name %>_path, class: "btn btn-incluir d-flex align-items-center" do %>
+      <i class="fa fa-plus me-2"></i> <%%= t("common.new_<%= singular_table_name %>", default: "Incluir") %>
+      <%% end %>
+    </div>
+    <!-- Card de <%= plural_table_name.humanize %> -->
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"><%%= t("common.<%= plural_table_name %>", default: "<%= plural_table_name.humanize %>") %></h4>
+        </div>
+        <div class="card-body">
+          <!-- Removido o campo de pesquisa aqui -->
+        </div>
+        <!-- Tabela de <%= plural_table_name.humanize %> -->
+        <div class="table-responsive">
+          <table id="<%= plural_table_name %>Table" class="table table-striped table-hover display" cellspacing="0" width="100%">
+            <thead>
+              <tr>
+                <th class="text-center"><%%= t("common.actions", default: "Ações") %></th>
+                <% attributes.each do |attribute| %>
+                  <th><%%= t("activerecord.attributes.<%= singular_table_name %>.<%= attribute.name %>", default: "<%= attribute.name.humanize %>") %></th>
+                <% end %>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th class="text-center"><%%= t("common.actions", default: "Ações") %></th>
+                <% attributes.each do |attribute| %>
+                  <th><%%= t("activerecord.attributes.<%= singular_table_name %>.<%= attribute.name %>", default: "<%= attribute.name.humanize %>") %></th>
+                <% end %>
+              </tr>
+            </tfoot>
+            <tbody>
+              <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+              <tr>
+                <td class="text-center">
+                  <!-- Dropdown de Ações -->
+                  <div class="dropdown">
+                    <button class="btn btn-sm dropdown-toggle" type="button" id="acoesDropdown<%%= <%= singular_table_name %>.id %>" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="fa fa-cog"></i>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="acoesDropdown<%%= <%= singular_table_name %>.id %>">
+                      <li><%%= link_to t("common.show", default: "Ver"), <%= singular_table_name %>, class: "dropdown-item" %></li>
+                      <li><%%= link_to t("common.edit", default: "Editar"), edit_<%= singular_table_name %>_path(<%= singular_table_name %>), class: "dropdown-item" %></li>
+                      <li><%%= button_to t("common.delete", default: "Excluir"), <%= singular_table_name %>, method: :delete, data: { confirm: t("common.are_you_sure", default: "Tem certeza?") }, class: "dropdown-item text-danger" %></li>
+                    </ul>
+                  </div>
+                </td>
+                <% attributes.each do |attribute| %>
+                  <% if attribute.reference? %>
+                    <!-- Atributo de associação (FK)-->
+                    <td><%%=<%= singular_table_name %>.<%= attribute.name.split('_id').first %>.nome if <%= singular_table_name %>.<%= attribute.name.split('_id').first %>.present? %></td>
+                  <% else %>
+                    <!--  Atributo comum -->
+                    <td><%%=<%= singular_table_name %>.<%= attribute.name %>%></td>
+                  <% end %>
+                <% end %>
+              </tr>
+              <%% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer Geral -->
+  <%%= render "shared/scaffold/footer" %>
+  <!-- Scripts para DataTables -->
+  <script>
+    $(document).ready(function() {
+      var table = $('#<%= plural_table_name %>Table').DataTable({
+        "paging": true,
+        "searching": false, // Desativa a pesquisa no DataTable
+        "ordering": true,
+        "info": true,
+        "lengthChange": false, // Desativa o ajuste de número de itens por página
+        "pageLength": 10, // Número inicial de itens por página
+      });
+    });
+  </script>
