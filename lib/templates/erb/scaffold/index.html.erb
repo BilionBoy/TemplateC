@@ -3,10 +3,10 @@
   <!-- Título da Página com ícone de Voltar e Botão Incluir -->
   <div class="d-flex justify-content-between align-items-center mb-4">
     <div class="d-flex align-items-center">
-      <%%= link_to root_path, class: "btn btn-light btn-sm me-3" do %>
+      <%%= link_to root_path, class: "btn btn-outline-secondary btn-sm me-3" do %>
         <i class="fa fa-arrow-left"></i> <!-- Ícone de Voltar -->
         <%% end %>
-        <h1 class="mb-0"><%%= t("common.<%= plural_table_name %>", default: "<%= plural_table_name.humanize %>") %></h1>
+        <h1 class="h4 mb-0"><%%= t("common.<%= plural_table_name %>", default: "<%= plural_table_name.humanize %>") %></h1>
       </div>
       <!-- Botão para Criar Novo <%= singular_table_name.humanize %> -->
       <%%= link_to new_<%= singular_table_name %>_path, class: "btn btn-incluir d-flex align-items-center" do %>
