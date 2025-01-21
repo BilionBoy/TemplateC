@@ -1,4 +1,4 @@
 class ApplicationController < ActionController::Base
-  allow_browser versions: :modern
   include Pagy::Backend  # Inclui Pagy para uso no Backend
+  allow_browser versions: :modern
 end

@@ -70,22 +70,10 @@
               <%% end %>
             </tbody>
           </table>
+          <div class="pag-bar mt-5 pt-5">
+            <%%= pagy_bootstrap_nav(@pagy).html_safe%>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- Footer Geral -->
-  <%%= render "shared/scaffold/footer" %>
-  <!-- Scripts para DataTables -->
-  <script>
-    $(document).ready(function() {
-      var table = $('#<%= plural_table_name %>Table').DataTable({
-        "paging": true,
-        "searching": false, // Desativa a pesquisa no DataTable
-        "ordering": true,
-        "info": true,
-        "lengthChange": false, // Desativa o ajuste de número de itens por página
-        "pageLength": 10, // Número inicial de itens por página
-      });
-    });
-  </script>
