@@ -13,3 +13,5 @@
  *= require_tree .
  *= require_self
  */
+/* Adicionando estilos do Pagy */
+@import "pagy/pagy";
