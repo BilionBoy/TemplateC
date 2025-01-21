@@ -83,7 +83,7 @@ gem "caxlsx"
 gem "caxlsx_rails"
 
 # Nested Forms
-# gem "cocoon"
+gem "cocoon"
 
 # Identificador Unico Universal
 # gem "uuid"
