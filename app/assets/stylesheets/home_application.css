@@ -12,6 +12,9 @@ body {
   background-color: white;
 }
 
+.content-wrapper {
+  margin-top: 100px;
+}
 /* Títulos */
 a {
   color: #161616;

@@ -18,12 +18,10 @@
     <%= javascript_include_tag "/assets/js/core/jquery-3.7.1.min.js",                                   "data-turbo-track": "reload" %>
     <%= javascript_include_tag "/assets/js/core/popper.min.js",                                         "data-turbo-track": "reload" %>
     <%= javascript_include_tag "/assets/js/core/bootstrap.min.js",                                      "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js",            "data-turbo-track": "reload" %>
     <%= javascript_include_tag "/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js",            "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "/assets/js/plugin/chart.js/chart.min.js",                               "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "/assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js",            "data-turbo-track": "reload" %>
     <%= javascript_include_tag "/assets/js/plugin/sweetalert/sweetalert.min.js",                        "data-turbo-track": "reload" %>
     <%= javascript_include_tag "/assets/js/plugin/datatables/datatables.min.js",                        "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js",            "data-turbo-track": "reload" %>
     <%= javascript_include_tag "/assets/js/kaiadmin.min.js",                                            "data-turbo-track": "reload" %>
   </head>
   <body>
@@ -31,7 +29,7 @@
       <%= render "shared/sidebar" %>
       <%= render "shared/navbar" %>
       <div class="main-content">
-        <div class="content-wrapper" style="margin-top: 100px;">
+        <div class="content-wrapper" >
           <%= yield %>
         </div>
       </div>
