@@ -11,11 +11,15 @@ body {
   padding: 0;
   background-color: white;
 }
-
-.content-wrapper {
-  margin-top: 100px;
+.page-content .content-wrapper {
+  margin-top: 90px; /* Adiciona o espaçamento superior */
 }
-/* Títulos */
+
+.content-wrapper .navbar-static {
+  z-index: 1021;
+}
+
+/* Títulos E Textos*/
 a {
   color: #161616;
   font-weight: bold;
@@ -225,4 +229,18 @@ b {
   color: #ffffff;
   font-weight: bold;
   font-size: 1.2em;
+}
+
+/* Ajustes para telas pequenas */
+@media (max-width: 768px) {
+  .page-content .content-wrapper {
+    margin-top: 70px; /* Diminui o espaçamento superior em telas pequenas */
+  }
+}
+
+/* Ajustes para dispositivos móveis (menor que 480px) */
+@media (max-width: 480px) {
+  .page-content .content-wrapper {
+    margin-top: 70px; /* Diminui ainda mais o espaçamento em telas muito pequenas */
+  }
 }
