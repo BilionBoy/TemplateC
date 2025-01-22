@@ -234,13 +234,25 @@ b {
 /* Ajustes para telas pequenas */
 @media (max-width: 768px) {
   .page-content .content-wrapper {
-    margin-top: 70px; /* Diminui o espaçamento superior em telas pequenas */
+    margin-top: 50px; /* Diminui o espaçamento superior em telas pequenas */
   }
 }
 
 /* Ajustes para dispositivos móveis (menor que 480px) */
 @media (max-width: 480px) {
   .page-content .content-wrapper {
-    margin-top: 70px; /* Diminui ainda mais o espaçamento em telas muito pequenas */
+    margin-top: 50px; /* Diminui ainda mais o espaçamento em telas muito pequenas */
   }
+}
+
+/* INDEX SCAFFOLD */
+
+.index-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 0.75rem;
+  padding: 20px;
+  margin-bottom: 50px;
 }
