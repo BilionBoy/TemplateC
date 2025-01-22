@@ -272,6 +272,93 @@ b {
   padding: 20px;
   margin-bottom: 45px;
 }
+.header-container {
+  display: flex;
+  align-items: center;
+}
+
+.notice-text {
+  color: green;
+}
+
+.form-search {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.search-field {
+  max-width: 200px;
+}
+
+.search-field + .search-field {
+  max-width: 300px;
+}
+
+#searchButton {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#searchButton:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#searchButton:active {
+  background-color: #003f7f;
+  transform: scale(0.98);
+}
+
+.pag-bar {
+  padding-top: 1.6rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .table-responsive {
+    margin-bottom: 1rem;
+  }
+
+  .table th,
+  .table td {
+    font-size: 12px;
+    padding: 0.25rem;
+  }
+
+  .table .w-25 {
+    width: 40%;
+  }
+
+  .table .w-50 {
+    width: 60%;
+  }
+
+  .table td[data-label]:before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .dropdown-menu {
+    width: auto;
+  }
+}
 
 /* FORM SCAFFOLD */
 .page-body {
