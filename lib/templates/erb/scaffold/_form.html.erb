@@ -1,17 +1,15 @@
-<%%= simple_form_for(@<%= singular_table_name %>, html: { class: "container-fluid page-inner" }) do |f| %>
 <!-- Cabeçalho do formulário -->
-<div class="page-header p-3 mb-4 shadow">
+<div class="page-body page-header mb-4 shadow">
   <div class="d-flex justify-content-between align-items-center">
-    <!-- Botão de Voltar e Título -->
     <div class="d-flex align-items-center">
-      <%%= link_to <%= plural_table_name %>_path, class: "btn btn-light d-flex align-items-center me-3" do %>
-      <i class="fas fa-arrow-left me-2"></i> <!-- Ícone de Voltar -->
-      <%%= t("common.back", default: "Voltar") %>
+      <%%= link_to <%= plural_table_name %>_path, class: "btn btn-outline-secondary btn-sm me-3" do %>
+      <i class="fas fa-arrow-left"></i>
       <%% end %>
+      <h1 class="h4 mb-0"> <%%=t("common.back", default: "Cadastro") %></h1>
     </div>
-    <%%= t(".header", default: "<%= singular_table_name.humanize %> Form") %>
   </div>
 </div>
+<%%= simple_form_for(@<%= singular_table_name %>, html: { class: "container-fluid page-inner" }) do |f| %>
 <div class="card">
   <div class="card-body">
     <!-- Campos do formulário -->

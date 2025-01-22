@@ -31,13 +31,9 @@
     <div class="page-content">
       <%= render "shared/sidebar" %>
       <div class="content-wrapper">
-        <div class="content-inner">
-          <!-- Context Nav (barra de navegação contextual) -->
-          <%= yield :context_nav %>
-          <!-- Conteúdo principal da página -->
-          <div class="content">
-            <%= yield %>
-          </div>
+        <!-- Conteúdo principal da página -->
+        <div class="content">
+          <%= yield %>
         </div>
         <!-- <%=  "shared/footer"%> -->
       </div>

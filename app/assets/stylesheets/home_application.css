@@ -272,3 +272,14 @@ b {
   padding: 20px;
   margin-bottom: 45px;
 }
+
+/* FORM SCAFFOLD */
+.page-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 0.75rem;
+  padding: 31px;
+  margin-bottom: 45px;
+}
