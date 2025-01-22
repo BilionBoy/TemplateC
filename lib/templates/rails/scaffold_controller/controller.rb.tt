@@ -5,7 +5,7 @@ class <%= controller_class_name %>Controller < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :handle_not_found
 
   def index
-    @pagy, @<%= plural_table_name %> = pagy(<%= class_name%>.all, limit: 7)
+    @pagy, @<%= plural_table_name %> = pagy(<%= class_name%>.all, limit: 6)
   end
 
   def new
