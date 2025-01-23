@@ -4,8 +4,9 @@ class <%= controller_class_name %>Controller < ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound, with: :handle_not_found
 
-  def index
-    @pagy, @<%= plural_table_name %> = pagy(<%= class_name%>.all, limit: 6)
+ def index
+    @q = <%= class_name %>.ransack(params[:q])
+    @pagy, @<%= plural_table_name %> = pagy(@q.result, limit:7)
   end
 
   def new

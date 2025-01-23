@@ -8,7 +8,6 @@ pt-BR:
       other: "Páginas"
     prev: "Anterior"
     next: "Próxima"
-
   activerecord:
     errors:
       messages:
@@ -17,18 +16,13 @@ pt-BR:
           has_one: Não é possível excluir o registro pois existe um %{record} dependente
           has_many: Não é possível excluir o registro pois existem %{record} dependentes
       models:
-        inventario:
-          one: "Invetario"
-          other: "Invetarios"
+        funcao:
+          one: "Funcao"
+          other: "Funcões"
       attributes:
-        inventario:
+        funcoes:
           nome: "Nome"
           descricao: "Descrição"
-          preco: "Preço"
-        avaliacao:
-          nome: "Nome"
-          descricao: "Descrição"
-          preco: "Preço"
   date:
     abbr_day_names:
       - dom

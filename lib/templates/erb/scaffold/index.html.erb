@@ -10,68 +10,62 @@
     <%% end %>
   </div>
   <div class="container-fluid ">
-    <p style="notice-text"><%%= notice %></p>
     <div class="col-md-12">
       <div class="card shadow">
         <!-- Card Header com o Formulário de Pesquisa -->
         <div class="card-header search-card-header">
-          <%%= form_with url: <%= plural_table_name %>_path, method: :get, local: true, class: "d-flex align-items-center gap-3 flex-nowrap w-100" do |f| %>
-          <div class="input-group shadow-sm search-field">
-            <%%= f.text_field :nome, placeholder: t("common.search_by_name", default: "Pesquisar por nome..."), class: "form-control" %>
-          </div>
-          <div class="input-group shadow-sm search-field">
-            <%%= f.text_field :descricao, placeholder: t("common.search_by_description", default: "Pesquisar por descrição..."), class: "form-control" %>
-          </div>
-          <button id="searchButton" type="submit" class="btn btn-primary shadow-sm">
-            <i class="fa fa-search me-2"></i> <%%= t("common.search_btn", default: "") %>
-          </button>
-          <%% end %>
-        </div>
-        <div class="card-body shadow">
-          <!-- Tabela de <%= plural_table_name.humanize %> -->
-          <div class="table-responsive">
-            <table id="<%= plural_table_name %>Table" class="table text-center table-striped table-hover display" cellspacing="0" width="100%">
-              <thead>
-                <tr>
-                  <th class="text-center"><%%= t("common.actions", default: "Ações") %></th>
-                  <% attributes.each do |attribute| %>
-                    <th><%%= t("activerecord.attributes.<%= singular_table_name %>.<%= attribute.name %>", default: "<%= attribute.name.humanize %>") %></th>
-                  <% end %>
-                </tr>
-              </thead>
-              <tbody>
-                <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
-                <tr>
-                  <td data-label="<%%= t('common.actions', default: 'Ações') %>">
-                    <div class="dropdown">
-                      <button class="btn btn-sm dropdown-toggle" type="button" id="acoesDropdown<%%= <%= singular_table_name %>.id %>" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-cog"></i>
-                      </button>
-                      <ul class="dropdown-menu" aria-labelledby="acoesDropdown<%%= <%= singular_table_name %>.id %>">
-                        <li><%%= link_to t("common.show", default: "Ver"), <%= singular_table_name %>, class: "dropdown-item" %></li>
-                        <li><%%= link_to t("common.edit", default: "Editar"), edit_<%= singular_table_name %>_path(<%= singular_table_name %>), class: "dropdown-item" %></li>
-                        <li><%%= button_to t("common.delete", default: "Excluir"), <%= singular_table_name %>, method: :delete, data: { confirm: t("common.are_you_sure", default: "Tem certeza?") }, class: "dropdown-item text-danger" %></li>
-                      </ul>
-                    </div>
-                  </td>
-                  <% attributes.each do |attribute| %>
-                    <% if attribute.reference? %>
-                      <!-- Atributo de associação (FK)-->
-                      <td><%%= <%= singular_table_name %>.<%= attribute.name.split('_id').first %>.nome if <%= singular_table_name %>.<%= attribute.name.split('_id').first %>.present? %></td>
-                    <% else %>
-                      <!-- Atributo comum -->
-                      <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
-                    <% end %>
-                  <% end %>
-                </tr>
-                <%% end %>
-              </tbody>
-            </table>
-            <div id="pagyNav" class="pag-bar">
-              <%%= pagy_bootstrap_nav(@pagy, link_extra: 'class="btn btn-outline-secondary btn-sm mx-1"').html_safe %>
+          <%%= search_form_for @q, html: { class: "d-flex align-items-center gap-3 flex-nowrap w-100" , autocomplete: "off"} do |f| %>
+            <%%= f.search_field :<%= attributes[0].name %>_cont, class: "form-control search-field", placeholder: "Pesquisar" %>
+            <%%= button_tag type: 'submit', class: 'btn btn-info' do %>
+              🔍  <!-- Ícone de lupa com Unicode -->
+              <%% end %>
+              <%% end %>
+            </div>
+            <div class="card-body shadow">
+              <!-- Tabela de <%= plural_table_name.humanize %> -->
+              <div class="table-responsive">
+                <table id="<%= plural_table_name %>Table" class="table text-center table-striped table-hover display" cellspacing="0" width="100%">
+                  <thead>
+                    <tr>
+                      <th class="text-center"><%%= t("common.actions", default: "Ações") %></th>
+                      <% attributes.each do |attribute| %>
+                        <th><%%= t("activerecord.attributes.<%= singular_table_name %>.<%= attribute.name %>", default: "<%= attribute.name.humanize %>") %></th>
+                      <% end %>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+                    <tr>
+                      <td data-label="<%%= t('common.actions', default: 'Ações') %>">
+                        <div class="dropdown">
+                          <button class="btn btn-sm dropdown-toggle" type="button" id="acoesDropdown<%%= <%= singular_table_name %>.id %>" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-cog"></i>
+                          </button>
+                          <ul class="dropdown-menu" aria-labelledby="acoesDropdown<%%= <%= singular_table_name %>.id %>">
+                            <li><%%= link_to t("common.show", default: "Ver"), <%= singular_table_name %>, class: "dropdown-item" %></li>
+                            <li><%%= link_to t("common.edit", default: "Editar"), edit_<%= singular_table_name %>_path(<%= singular_table_name %>), class: "dropdown-item" %></li>
+                            <li><%%= button_to t("common.delete", default: "Excluir"), <%= singular_table_name %>, method: :delete, data: { confirm: t("common.are_you_sure", default: "Tem certeza?") }, class: "dropdown-item text-danger" %></li>
+                          </ul>
+                        </div>
+                      </td>
+                      <% attributes.each do |attribute| %>
+                        <% if attribute.reference? %>
+                          <!-- Atributo de associação (FK)-->
+                          <td><%%= <%= singular_table_name %>.<%= attribute.name.split('_id').first %>.nome if <%= singular_table_name %>.<%= attribute.name.split('_id').first %>.present? %></td>
+                        <% else %>
+                          <!-- Atributo comum -->
+                          <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+                        <% end %>
+                      <% end %>
+                    </tr>
+                    <%% end %>
+                  </tbody>
+                </table>
+                <div id="pagyNav" class="pag-bar">
+                  <%%= pagy_bootstrap_nav(@pagy, link_extra: 'class="btn btn-outline-secondary btn-sm mx-1"').html_safe %>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>

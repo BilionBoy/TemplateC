@@ -331,13 +331,20 @@ b {
   flex-wrap: nowrap;
   width: 100%;
 }
-
+.btn-info {
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border-radius: 0.35rem;
+}
 .search-field {
-  max-width: 200px;
+  width: 100% !important; /* 100% de largura para dispositivos móveis */
 }
 
-.search-field + .search-field {
-  max-width: 300px;
+/* Estilo para desktops (PCs) */
+@media (min-width: 992px) {
+  .search-field {
+    width: 18% !important;
+  }
 }
 
 .card {
@@ -345,7 +352,9 @@ b {
 }
 .form-control {
   border-color: #ced4da; /* Cor da borda do campo de entrada */
+  width: 15% !important;
 }
+
 .pag-bar {
   padding-top: 1.6rem;
   display: flex;
