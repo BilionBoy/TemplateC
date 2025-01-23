@@ -24,9 +24,9 @@
       <%- end -%>
     </div>
   </div>
-  <div class="card-footer d-flex justify-content-between">
+  <div class="card-footer justify-content-between">
     <!-- Botões do formulário -->
-    <%%= f.submit t(".save", default: "Salvar"), class: "btn btn-primary" %>
+    <%%= f.submit t(".save", default: "Salvar"), class: "btn btn-incluir" %>
     <%%= link_to t("common.back", default: "Voltar"), <%= plural_table_name %>_path, class: "btn btn-secondary" %>
   </div>
 </div>
