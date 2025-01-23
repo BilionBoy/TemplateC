@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
 class Funcao < ApplicationRecord
-  # Adicione aqui quaisquer métodos ou validações padrão para seus modelos
+  # Relacionamentos
+  has_many :users
+  # Validações
+  validates :nome, presence: true
 end
