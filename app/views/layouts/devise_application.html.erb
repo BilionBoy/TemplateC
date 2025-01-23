@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <title>Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Metadados  -->
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <% # Dependências CSS %>
+    <%= stylesheet_link_tag "/assets/css/bootstrap.min.css",                                            "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "/assets/css/plugins.min.css",                                              "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "/assets/css/kaiadmin.css",                                                 "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "/assets/css/demo.css",                                                     "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "devise_application",                                                         "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <% # App JS do projeto %>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>
