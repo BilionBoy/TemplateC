@@ -5,7 +5,7 @@ class FuncoesController < ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound, with: :handle_not_found
 
- def index
+  def index
     @q = Funcao.ransack(params[:q])
     @pagy, @funcoes = pagy(@q.result, limit: 7)
   end

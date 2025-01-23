@@ -331,27 +331,13 @@ b {
   flex-wrap: nowrap;
   width: 100%;
 }
-.btn-info {
-  padding: 0.5rem 1rem;
-  font-size: 1.2rem;
-  border-radius: 0.35rem;
-}
-.search-field {
-  width: 100% !important; /* 100% de largura para dispositivos móveis */
-}
-
-/* Estilo para desktops (PCs) */
-@media (min-width: 992px) {
-  .search-field {
-    width: 18% !important;
-  }
-}
 
 .card {
   border: 1px solid #dee2e6; /* Cor da borda do card */
 }
 .form-control {
   border-color: #ced4da; /* Cor da borda do campo de entrada */
+  width: 15% !important;
 }
 
 .pag-bar {

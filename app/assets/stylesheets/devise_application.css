@@ -9,6 +9,7 @@
 }
 
 body {
+  overflow: hidden;
   margin: 0;
   padding: 0;
   font-size: 16px;
@@ -43,36 +44,6 @@ p {
   }
 }
 
-/* Definindo a animação do fundo */
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.login-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  position: relative;
-  z-index: 1;
-}
-
-.container {
-  max-width: 900px;
-  width: 100%;
-  z-index: 2;
-}
-
 em {
   color: white;
 }
@@ -81,101 +52,12 @@ p {
   color: white;
 }
 
-.login-container {
-  display: flex;
-  flex-direction: row;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-}
-
-.login-info {
-  background-color: #3a6785;
-  color: white;
-  padding: 3rem;
-  text-align: center;
-}
-
-.login-info h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-
-.login-info h2 {
-  margin-bottom: 1rem;
-}
-
-.login-form {
-  background-color: #2a5065;
-  padding: 3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.form-wrapper {
+.form-control {
   width: 100%;
-}
-
-.form-wrapper h2 {
-  color: #ffffff;
-  font-weight: bold;
-}
-
-.input-group {
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.input-group .form-control {
-  padding: 10px;
-  border: 1px solid #333333;
-  border-radius: 10px;
-  background-color: #121212;
-  color: white;
-}
-
-.input-group .form-control:focus {
-  border-color: #ffffff;
-  background-color: #333333;
-}
-
-.btn-submit {
-  width: 300px;
-  background-color: #4294e5;
-  /* Botão escuro */
-  border-color: #4294e5;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  font-size: 1rem;
-  max-width: 650px;
-  display: block;
-  margin: 0 auto;
 }
 
 .btn-submit:hover {
   background-color: #4294e5;
-}
-
-.links {
-  text-align: center;
-  margin-top: 1rem;
-}
-
-.links a {
-  color: #ffffff;
-  text-decoration: none;
-  display: block;
-  margin-top: 0.5rem;
-}
-
-.links a:hover {
-  text-decoration: underline;
 }
 
 /* Responsividade */
