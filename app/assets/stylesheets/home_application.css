@@ -352,7 +352,6 @@ b {
 }
 .form-control {
   border-color: #ced4da; /* Cor da borda do campo de entrada */
-  width: 15% !important;
 }
 
 .pag-bar {
