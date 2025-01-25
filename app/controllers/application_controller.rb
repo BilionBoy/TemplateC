@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!  # Autentica o usuário antes de qualquer ação
+  # before_action :authenticate_user!  # Autentica o usuário antes de qualquer ação
   include Pagy::Backend  # Inclui Pagy para uso no Backend
   allow_browser versions: :modern
 
@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     if devise_controller?
       self.class.layout "devise_application"
     else
-      self.class.layout "home_application"
+      self.class.layout "application"
     end
   end
 end
