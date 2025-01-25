@@ -335,10 +335,6 @@ b {
 .card {
   border: 1px solid #dee2e6; /* Cor da borda do card */
 }
-.form-control {
-  border-color: #ced4da; /* Cor da borda do campo de entrada */
-  width: 15% !important;
-}
 
 .pag-bar {
   padding-top: 1.6rem;
@@ -386,4 +382,8 @@ b {
   border-radius: 0.75rem;
   padding: 31px;
   margin-bottom: 45px;
+}
+
+.form-control {
+  border-color: #ced4da; /* Cor da borda do campo de entrada */
 }
