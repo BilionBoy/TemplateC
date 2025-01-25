@@ -7,7 +7,7 @@ class FuncoesController < ApplicationController
 
   def index
     @q = Funcao.ransack(params[:q])
-    @pagy, @funcoes = pagy(@q.result, limit: 7)
+    @pagy, @funcoes = pagy(@q.result)
   end
 
   def new

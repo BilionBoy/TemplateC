@@ -6,7 +6,7 @@ class <%= controller_class_name %>Controller < ApplicationController
 
  def index
     @q = <%= class_name %>.ransack(params[:q])
-    @pagy, @<%= plural_table_name %> = pagy(@q.result, limit:7)
+    @pagy, @<%= plural_table_name %> = pagy(@q.result)
   end
 
   def new
