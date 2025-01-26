@@ -73,11 +73,11 @@ b {
 /* SIDEBAR */
 
 .sidebar[data-background-color="dark"] {
-  background: #005171 !important;
+  background: #181818 !important;
 }
 
 .logo-header[data-background-color="dark"] {
-  background: #005171 !important;
+  background: #181818 !important;
 }
 
 .sidebar .nav.nav-secondary>.nav-item a:hover i,
@@ -133,7 +133,7 @@ b {
 
 /* NAVBAR */
 .main-header {
-  background: #005171 !important;
+  background: #181818 !important;
   min-height: 60px;
   width: calc(100% - 250px);
   position: fixed;
