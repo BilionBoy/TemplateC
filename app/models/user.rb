@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   # Relacionamentos
   belongs_to :funcao
+  has_many :users_estabelecimentos
+  has_many :estabelecimentos, through: :users_estabelecimentos
+
   # Validações
   validates :nome, presence: true
   validates :email, presence: true

@@ -1,0 +1,56 @@
+<div class="index-body page-header-light shadow">
+  <div class="header-container ">
+    <%= link_to root_path, class: "btn btn-outline-secondary btn-sm me-3" do %>
+      <i class="fa fa-arrow-left"></i>
+    <% end %>
+    <h1 class="h4 mb-0"><%= t("common.users_estabelecimentos", default: "Users estabelecimentos") %></h1>
+  </div>
+  <%= link_to new_users_estabelecimento_path, class: "btn btn-incluir d-flex align-items-center" do %>
+    <i class="fa fa-plus me-2"></i> <%= t("common.new_users_estabelecimento", default: "Incluir") %>
+  <% end %>
+</div>
+<div class="container-fluid ">
+  <div class="col-md-12">
+    <div class="card shadow">
+      <div class="card-body shadow">
+        <!-- Tabela de Users estabelecimentos -->
+        <div class="table-responsive">
+          <table id="users_estabelecimentosTable" class="table text-center table-striped table-hover display" cellspacing="0" width="100%">
+            <thead>
+              <tr>
+                <th class="text-center"><%= t("common.actions", default: "Ações") %></th>
+                <th><%= t("activerecord.attributes.users_estabelecimento.user", default: "User") %></th>
+                <th><%= t("activerecord.attributes.users_estabelecimento.estabelecimento", default: "Estabelecimento") %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @users_estabelecimentos.each do |users_estabelecimento| %>
+                <tr>
+                  <td data-label="<%= t('common.actions', default: 'Ações') %>">
+                    <div class="dropdown">
+                      <button class="btn btn-sm dropdown-toggle" type="button" id="acoesDropdown<%= users_estabelecimento.id %>" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-cog"></i>
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="acoesDropdown<%= users_estabelecimento.id %>">
+                        <li><%= link_to t("common.show", default: "Ver"), users_estabelecimento, class: "dropdown-item" %></li>
+                        <li><%= link_to t("common.edit", default: "Editar"), edit_users_estabelecimento_path(users_estabelecimento), class: "dropdown-item" %></li>
+                        <li><%= button_to t("common.delete", default: "Excluir"), users_estabelecimento, method: :delete, data: { confirm: t("common.are_you_sure", default: "Tem certeza?") }, class: "dropdown-item text-danger" %></li>
+                      </ul>
+                    </div>
+                  </td>
+                  <!-- Atributo de associação (FK)-->
+                  <td><%= users_estabelecimento.user.nome if users_estabelecimento.user.present? %></td>
+                  <!-- Atributo de associação (FK)-->
+                  <td><%= users_estabelecimento.estabelecimento.nome if users_estabelecimento.estabelecimento.present? %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <div id="pagyNav" class="pag-bar">
+            <%= pagy_bootstrap_nav(@pagy, link_extra: 'class="btn btn-outline-secondary btn-sm mx-1"').html_safe %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
