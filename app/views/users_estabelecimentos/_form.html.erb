@@ -17,14 +17,14 @@
         <div class="row mb-3">
           <div class="col-12 col-md-6">
             <!-- Exibe o campo de entrada ou associação (FK) de forma responsiva -->
-            <%= f.collection_select :user_id, User.all, :id, :nome, { prompt: "Selecione o usuário" }, { class: "form-control", style: "max-width: 100%;" } %>
-          </div>
+            <%= f.label :user_id, "Usuário" %>
+            <%= f.collection_select :user_id, User.all, :id, :nome, { prompt: "Selecione o usuário" }, { class: "form-select", style: "max-width: 100%;" } %>          </div>
         </div>
         <div class="row mb-3">
           <div class="col-12 col-md-6">
             <!-- Exibe o campo de entrada ou associação (FK) de forma responsiva -->
-            <%= f.collection_select :estabelecimento_id, Estabelecimento.all, :id, :nome, { prompt: "Selecione o Estabelecimento" }, { class: "form-control", style: "max-width: 100%;" } %>
-          </div>
+            <%= f.label :estabelecimento_id, "Estabelecimento" %>
+            <%= f.collection_select :estabelecimento_id, Estabelecimento.all, :id, :nome, { prompt: "Selecione o estabelecimento" }, { class: "form-select", style: "max-width: 100%;" } %>          </div>
         </div>
       </div>
     </div>
