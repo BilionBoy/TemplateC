@@ -15,28 +15,27 @@
     <%= stylesheet_link_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_importmap_tags %>
   </head>
-  <body class="">
-    <!-- Navbar principal -->
-    <%= render "shared/navbar" %>
-    <!-- Conteúdo da página -->
-    <div class="page-content">
+  <body>
+    <div class="wrapper">
       <%= render "shared/sidebar" %>
-      <div class="content-wrapper">
-        <!-- Conteúdo principal da página -->
-        <div class="content">
+      <%= render "shared/navbar" %>
+      <div class="main-content">
+        <div class="content-wrapper">
           <%= yield %>
         </div>
-        <!-- <%=  "shared/footer"%> -->
       </div>
     </div>
-    <% # App JS do projeto %>
-    <%= javascript_include_tag "/assets/js/core/jquery-3.7.1.min.js",                                   "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "/assets/js/core/popper.min.js",                                         "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "/assets/js/core/bootstrap.min.js",                                      "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js",            "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js",            "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "/assets/js/plugin/sweetalert/sweetalert.min.js",                        "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "/assets/js/plugin/datatables/datatables.min.js",                        "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "/assets/js/kaiadmin.min.js",                                            "data-turbo-track": "reload" %>
-  </body>
+    <!-- <%=  "shared/footer"%> -->
+  </div>
+</div>
+<% # App JS do projeto %>
+<%= javascript_include_tag "/assets/js/core/jquery-3.7.1.min.js",                                   "data-turbo-track": "reload" %>
+<%= javascript_include_tag "/assets/js/core/popper.min.js",                                         "data-turbo-track": "reload" %>
+<%= javascript_include_tag "/assets/js/core/bootstrap.min.js",                                      "data-turbo-track": "reload" %>
+<%= javascript_include_tag "/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js",            "data-turbo-track": "reload" %>
+<%= javascript_include_tag "/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js",            "data-turbo-track": "reload" %>
+<%= javascript_include_tag "/assets/js/plugin/sweetalert/sweetalert.min.js",                        "data-turbo-track": "reload" %>
+<%= javascript_include_tag "/assets/js/plugin/datatables/datatables.min.js",                        "data-turbo-track": "reload" %>
+<%= javascript_include_tag "/assets/js/kaiadmin.min.js",                                            "data-turbo-track": "reload" %>
+</body>
 </html>
