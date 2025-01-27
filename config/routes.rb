@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
-  resources :users_estabelecimentos
-  resources :estabelecimentos
   devise_for :users, controllers: { registrations: "users/registrations" }
 
-  # Rota para a página inicial
+  # Rotas para a página inicial
   root "home#index"
   get "home/index"
 
+
   # Rotas Scaffold
+  resources :usuarios, only: [ :index, :show, :destroy ]
   resources :funcoes
+  resources :users_estabelecimentos
+  resources :estabelecimentos
 
 
   # Status da Aplicação

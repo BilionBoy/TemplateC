@@ -1,0 +1,28 @@
+<h2>Detalhes do Usuário</h2>
+<table class="table">
+  <tr>
+    <th>Nome</th>
+    <td><%= @usuario.nome %></td>
+  </tr>
+  <tr>
+    <th>Email</th>
+    <td><%= @usuario.email %></td>
+  </tr>
+  <tr>
+    <th>CPF</th>
+    <td><%= @usuario.cpf %></td>
+  </tr>
+  <tr>
+    <th>Função</th>
+    <td><%= @usuario.funcao.nome %></td>
+  </tr>
+  <tr>
+    <th>Estabelecimentos</th>
+    <td>
+      <% @usuario.estabelecimentos.each do |estabelecimento| %>
+        <p><%= estabelecimento.nome %></p>
+      <% end %>
+    </td>
+  </tr>
+</table>
+<%= link_to 'Voltar', usuarios_path, class: 'btn btn-secondary' %>

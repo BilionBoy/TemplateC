@@ -14,4 +14,14 @@ class ApplicationController < ActionController::Base
       self.class.layout "application"
     end
   end
+
+
+  # Verifica se o usuário tem a função "Administrador"
+  def authenticate_admin!
+    puts "Função do usuário: #{current_user.funcao&.nome}"
+    if current_user.funcao&.nome != "Administrador"
+      flash[:alert] = "Você não tem permissão para acessar esta página."
+      redirect_to root_path
+    end
+  end
 end

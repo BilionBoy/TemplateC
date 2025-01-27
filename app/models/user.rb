@@ -11,6 +11,6 @@ class User < ApplicationRecord
   # Validações
   validates :nome, presence: true
   validates :email, presence: true
-  validates :cpf, presence: true
+  validates :cpf, presence: true, uniqueness: true, format: { with: /\A\d{11}\z/, message: "deve conter 11 dígitos numéricos" }
   validates :telefone, presence: true
 end
