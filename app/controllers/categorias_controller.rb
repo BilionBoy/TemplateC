@@ -12,7 +12,6 @@ class CategoriasController < ApplicationController
     else
       @categorias = Categoria.none # Se o estabelecimento não existir, retorna vazio
     end
-
     @pagy, @categorias = pagy(@categorias)
   end
 

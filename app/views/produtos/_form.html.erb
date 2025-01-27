@@ -28,7 +28,7 @@
         </div>
         <div class="row mb-3">
           <div class="col-12 col-md-6">
-            <%= f.association :categoria, collection: Categoria.all, value_method: :id, label_method: :nome, input_html: { class: "form-control", style: "width: 100%;", placeholder: "Categoria", title: "Informe categoria" } %>
+            <%= f.association :categoria, collection: @categorias, value_method: :id, label_method: :nome, input_html: { class: "form-control", style: "width: 100%;", placeholder: "Categoria", title: "Informe categoria" } %>
           </div>
         </div>
         <div class="row mb-3">

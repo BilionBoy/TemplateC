@@ -3,6 +3,7 @@
 class Produto < ApplicationRecord
   # Relacionamentos
   belongs_to :categoria
+  has_one :estabelecimento, through: :categoria
   has_one_attached :image
   # Validações
   validates :nome, presence: true

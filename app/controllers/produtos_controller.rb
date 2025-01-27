@@ -1,17 +1,26 @@
-# frozen_string_literal: true
-
 class ProdutosController < ApplicationController
   before_action :set_produto, only: %i[show edit update destroy]
+  before_action :set_estabelecimento, only: %i[index]
 
   rescue_from ActiveRecord::RecordNotFound, with: :handle_not_found
 
   def index
     @q = Produto.ransack(params[:q])
-    @pagy, @produtos = pagy(@q.result)
+    if @estabelecimento
+      # Filtra os produtos associados às categorias do estabelecimento do usuário logado
+      @produtos = @estabelecimento.produtos.ransack(params[:q]).result
+    else
+      @produtos = Produto.none # Se o estabelecimento não existir, retorna vazio
+    end
+    @pagy, @produtos = pagy(@produtos)
   end
 
   def new
+    # Adiciona o carregamento do estabelecimento
+    set_estabelecimento
+
     @produto = Produto.new
+    @categorias = @estabelecimento.categorias
   end
 
   def edit
@@ -48,6 +57,12 @@ class ProdutosController < ApplicationController
   def set_produto
     @produto = Produto.find_by(id: params[:id])
     redirect_to produtos_path, alert: t("messages.not_found") unless @produto
+  end
+
+  def set_estabelecimento
+    # Aqui, buscamos o estabelecimento associado ao usuário através da tabela intermediária
+    @estabelecimento = current_user.estabelecimentos.first
+    redirect_to root_path, alert: t("messages.not_authorized") unless @estabelecimento
   end
 
   def produto_params
