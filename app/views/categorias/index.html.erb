@@ -1,0 +1,68 @@
+<div class="index-body page-header-light shadow">
+  <div class="header-container ">
+    <%= link_to root_path, class: "btn btn-outline-secondary btn-sm me-3" do %>
+      <i class="fa fa-arrow-left"></i>
+    <% end %>
+    <h1 class="h4 mb-0"><%= t("common.categorias", default: "Categorias") %></h1>
+  </div>
+  <%= link_to new_categoria_path, class: "btn btn-incluir d-flex align-items-center" do %>
+    <i class="fa fa-plus me-2"></i> <%= t("common.new_categoria", default: "Incluir") %>
+  <% end %>
+</div>
+<div class="container-fluid ">
+  <div class="col-md-12">
+    <div class="card shadow">
+      <!-- Card Header com o Formulário de Pesquisa -->
+      <div class="card-header search-card-header">
+        <%= search_form_for @q, html: { class: "d-flex align-items-center gap-3 flex-nowrap w-100" , autocomplete: "off"} do |f| %>
+          <%= f.search_field :nome_cont, class: "form-control search-field", placeholder: "Pesquisar" %>
+          <%= button_tag type: 'submit', class: 'btn btn-info' do %>
+            🔍  <!-- Ícone de lupa com Unicode -->
+          <% end %>
+        <% end %>
+      </div>
+      <div class="card-body shadow">
+        <!-- Tabela de Categorias -->
+        <div class="table-responsive">
+          <table id="categoriasTable" class="table text-center table-striped table-hover display" cellspacing="0" width="100%">
+            <thead>
+              <tr>
+                <th class="text-center"><%= t("common.actions", default: "Ações") %></th>
+                <th><%= t("activerecord.attributes.categoria.nome", default: "Nome") %></th>
+                <th><%= t("activerecord.attributes.categoria.descricao", default: "Descricao") %></th>
+                <th><%= t("activerecord.attributes.categoria.estabelecimento", default: "Estabelecimento") %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @categorias.each do |categoria| %>
+                <tr>
+                  <td data-label="<%= t('common.actions', default: 'Ações') %>">
+                    <div class="dropdown">
+                      <button class="btn btn-sm dropdown-toggle" type="button" id="acoesDropdown<%= categoria.id %>" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-cog"></i>
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="acoesDropdown<%= categoria.id %>">
+                        <li><%= link_to t("common.show", default: "Ver"), categoria, class: "dropdown-item" %></li>
+                        <li><%= link_to t("common.edit", default: "Editar"), edit_categoria_path(categoria), class: "dropdown-item" %></li>
+                        <li><%= button_to t("common.delete", default: "Excluir"), categoria, method: :delete, data: { confirm: t("common.are_you_sure", default: "Tem certeza?") }, class: "dropdown-item text-danger" %></li>
+                      </ul>
+                    </div>
+                  </td>
+                  <!-- Atributo comum -->
+                  <td><%= categoria.nome %></td>
+                  <!-- Atributo comum -->
+                  <td><%= categoria.descricao %></td>
+                  <!-- Atributo de associação (FK)-->
+                  <td><%= categoria.estabelecimento.nome if categoria.estabelecimento.present? %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <div id="pagyNav" class="pag-bar">
+            <%= pagy_bootstrap_nav(@pagy, link_extra: 'class="btn btn-outline-secondary btn-sm mx-1"').html_safe %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

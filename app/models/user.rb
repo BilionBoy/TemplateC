@@ -9,8 +9,8 @@ class User < ApplicationRecord
   has_many :estabelecimentos, through: :users_estabelecimentos
 
   # Validações
-  validates :nome, presence: true
-  validates :email, presence: true
-  validates :cpf, presence: true, uniqueness: true, format: { with: /\A\d{11}\z/, message: "deve conter 11 dígitos numéricos" }
+  validates :nome,     presence: true
+  validates :email,    presence: true
+  validates :cpf,      presence: true, uniqueness: true, format: { with: /\A\d{11}\z/, message: "deve conter 11 dígitos numéricos" }
   validates :telefone, presence: true
 end

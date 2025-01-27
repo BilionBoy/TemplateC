@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   # Verifica se o usuário tem a função "Administrador"
   def authenticate_admin!
     puts "Função do usuário: #{current_user.funcao&.nome}"
-    if current_user.funcao&.nome != "Administrador"
+    if current_user.funcao&.nome != "CEO"
       flash[:alert] = "Você não tem permissão para acessar esta página."
       redirect_to root_path
     end

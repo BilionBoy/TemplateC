@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :produtos
+  resources :categorias
   devise_for :users, controllers: { registrations: "users/registrations" }
 
   # Rotas para a página inicial

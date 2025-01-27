@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
-class CreateUsersEstabelecimentos < ActiveRecord::Migration[7.2]
+class CreateCategorias < ActiveRecord::Migration[7.2]
   def up
-    create_table :users_estabelecimentos do |t|
-      t.references :user, null: false, foreign_key: true
+    create_table :categorias do |t|
+      t.string :nome
+      t.text :descricao
       t.references :estabelecimento, null: false, foreign_key: true
 
       t.string :created_by
@@ -14,6 +15,6 @@ class CreateUsersEstabelecimentos < ActiveRecord::Migration[7.2]
   end
 
   def down
-    drop_table :users_estabelecimentos
+    drop_table :categorias
   end
 end
