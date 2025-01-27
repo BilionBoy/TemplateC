@@ -1,14 +1,19 @@
-# frozen_string_literal: true
-
 class CategoriasController < ApplicationController
   before_action :set_categoria, only: %i[show edit update destroy]
-
+  before_action :set_estabelecimento, only: %i[index]
 
   rescue_from ActiveRecord::RecordNotFound, with: :handle_not_found
 
   def index
     @q = Categoria.ransack(params[:q])
-    @pagy, @categorias = pagy(@q.result)
+    if @estabelecimento
+      # Filtra as categorias associadas ao estabelecimento do usuário logado
+      @categorias = @estabelecimento.categorias.ransack(params[:q]).result
+    else
+      @categorias = Categoria.none # Se o estabelecimento não existir, retorna vazio
+    end
+
+    @pagy, @categorias = pagy(@categorias)
   end
 
   def new
@@ -49,6 +54,12 @@ class CategoriasController < ApplicationController
   def set_categoria
     @categoria = Categoria.find_by(id: params[:id])
     redirect_to categorias_path, alert: t("messages.not_found") unless @categoria
+  end
+
+  def set_estabelecimento
+    # Aqui, buscamos o estabelecimento associado ao usuário através da tabela intermediária
+    @estabelecimento = current_user.estabelecimentos.first
+    redirect_to root_path, alert: t("messages.not_authorized") unless @estabelecimento
   end
 
   def categoria_params
