@@ -2,7 +2,7 @@
 
 class UsersEstabelecimento < ApplicationRecord
   # Relacionamentos
-  belongs_to :user
   belongs_to :estabelecimento
+  belongs_to :user
   # Validações
 end

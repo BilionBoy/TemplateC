@@ -36,11 +36,15 @@ class UsersEstabelecimentosController < ApplicationController
   end
 
   def destroy
-    if @users_estabelecimento.destroy
-      redirect_to users_estabelecimentos_url, notice: t("messages.deleted_successfully")
-    else
-      redirect_to users_estabelecimentos_url, alert: t("messages.delete_failed_due_to_dependencies")
-    end
+    @user = User.find(params[:id])
+    @user.users_estabelecimentos.destroy_all
+
+     # Agora, exclua o usuário
+     if @user.destroy
+       redirect_to users_path, notice: t("messages.deleted_successfully")
+     else
+       redirect_to users_path, alert: t("messages.delete_failed_due_to_dependencies")
+     end
   end
 
   private

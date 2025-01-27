@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   # Relacionamentos
   belongs_to :funcao
-  has_many :users_estabelecimentos
+  has_many :users_estabelecimentos, dependent: :destroy
   has_many :estabelecimentos, through: :users_estabelecimentos
 
   # Validações
