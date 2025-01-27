@@ -30,15 +30,17 @@
           <div class="col-12 col-md-6">
             <!-- Exibe o campo de entrada ou associação (FK) de forma responsiva -->
             <%= f.label :estabelecimento_id, "Estabelecimento" %>
-            <%= f.collection_select :estabelecimento_id, Estabelecimento.all, :id, :nome, { prompt: "Selecione o estabelecimento" }, { class: "form-select", style: "max-width: 100%;" } %>          </div>
+            <%= f.collection_select :estabelecimento_id, current_user.estabelecimentos, :id, :nome, 
+          { prompt: "Selecione o estabelecimento" }, 
+          { class: "form-select", style: "max-width: 100%;" } %>
           </div>
+        </div>
       </div>
     </div>
+    <div class="card-footer justify-content-between">
+      <!-- Botões do formulário -->
+      <%= f.submit t(".save", default: "Salvar"), class: "btn btn-incluir" %>
+      <%= link_to t("common.back", default: "Voltar"), categorias_path, class: "btn btn-secondary" %>
+    </div>
   </div>
-  <div class="card-footer justify-content-between">
-    <!-- Botões do formulário -->
-    <%= f.submit t(".save", default: "Salvar"), class: "btn btn-incluir" %>
-    <%= link_to t("common.back", default: "Voltar"), categorias_path, class: "btn btn-secondary" %>
-  </div>
-</div>
 <% end %>

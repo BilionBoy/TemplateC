@@ -25,6 +25,7 @@ class CategoriasController < ApplicationController
   def create
     @categoria = Categoria.new(categoria_params)
 
+
     if @categoria.save
       redirect_to categorias_path, notice: t("messages.created_successfully")
     else
