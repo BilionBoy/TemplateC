@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_01_23_163401) do
+ActiveRecord::Schema[7.2].define(version: 2025_01_26_033243) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "estabelecimentos", force: :cascade do |t|
+    t.string "nome"
+    t.string "cnpj"
+    t.string "endereco"
+    t.string "telefone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cnpj"], name: "index_estabelecimentos_on_cnpj", unique: true
+  end
 
   create_table "funcoes", force: :cascade do |t|
     t.string "nome"
@@ -38,6 +48,18 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_23_163401) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["funcao_id"], name: "index_users_on_funcao_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "users_estabelecimentos", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "estabelecimento_id"
+    t.string "created_by"
+    t.string "updated_by"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["estabelecimento_id"], name: "index_users_estabelecimentos_on_estabelecimento_id"
+    t.index ["user_id"], name: "index_users_estabelecimentos_on_user_id"
   end
 
   add_foreign_key "users", "funcoes"

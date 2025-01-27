@@ -2,4 +2,6 @@
 
 ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.irregular "funcao", "funcoes"
+  inflect.irregular "estabelecimento", "estabelecimentos"
+  inflect.irregular "users_estabelecimento", "users_estabelecimentos"
 end

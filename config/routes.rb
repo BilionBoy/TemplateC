@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :users_estabelecimentos
+  resources :estabelecimentos
   devise_for :users, controllers: { registrations: "users/registrations" }
 
   # Rota para a página inicial
