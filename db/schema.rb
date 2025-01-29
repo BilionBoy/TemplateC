@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_01_27_162052) do
+ActiveRecord::Schema[7.2].define(version: 2025_01_27_151824) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -73,20 +73,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_27_162052) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "produtos", force: :cascade do |t|
-    t.string "nome"
-    t.text "descricao"
-    t.decimal "preco"
-    t.bigint "categoria_id", null: false
-    t.integer "quantidade_estoque"
-    t.string "created_by"
-    t.string "updated_by"
-    t.datetime "deleted_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["categoria_id"], name: "index_produtos_on_categoria_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -119,7 +105,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_27_162052) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "categorias", "estabelecimentos"
-  add_foreign_key "produtos", "categorias"
   add_foreign_key "users", "funcoes"
   add_foreign_key "users_estabelecimentos", "estabelecimentos"
   add_foreign_key "users_estabelecimentos", "users"
